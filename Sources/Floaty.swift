@@ -496,8 +496,8 @@ open class Floaty: UIView {
    titlePosition's default value is left.
    */
   @discardableResult
-  @objc open func addItem(title: String, titlePosition: FloatyItemLabelPositionType = .left) -> FloatyItem {
-    let item = FloatyItem()
+  @objc open func addItem(title: String,font: UIFont? = nil, titlePosition: FloatyItemLabelPositionType = .left) -> FloatyItem {
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.titleLabelPosition = titlePosition
     item.title = title
@@ -510,13 +510,9 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(title: String, font: UIFont? = nil) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.title = title
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -527,15 +523,11 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(_ title: String,font: UIFont? = nil, icon: UIImage?, titlePosition: FloatyItemLabelPositionType = .left) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.titleLabelPosition = titlePosition
     item.title = title
     item.icon = icon
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -545,14 +537,10 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(_ title: String,font: UIFont? = nil, icon: UIImage?) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.title = title
     item.icon = icon
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -562,14 +550,10 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(title: String,font: UIFont? = nil, handler: @escaping ((FloatyItem) -> Void)) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.title = title
     item.handler = handler
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -580,15 +564,11 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(title: String,font: UIFont? = nil, titlePosition: FloatyItemLabelPositionType = .left, handler: @escaping ((FloatyItem) -> Void)) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.titleLabelPosition = titlePosition
     item.title = title
     item.handler = handler
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -598,15 +578,11 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(_ title: String, font: UIFont? = nil, icon: UIImage?, handler: @escaping ((FloatyItem) -> Void)) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.title = title
     item.icon = icon
     item.handler = handler
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -617,16 +593,12 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(_ title: String,font: UIFont? = nil, icon: UIImage?, titlePosition: FloatyItemLabelPositionType = .left, handler: @escaping ((FloatyItem) -> Void)) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: font)
     itemDefaultSet(item)
     item.titleLabelPosition = titlePosition
     item.title = title
     item.icon = icon
     item.handler = handler
-    if let font = font {
-      /// User want to use custom font so override default font here
-      FloatyManager.defaultInstance().font = font
-    }
     addItem(item: item)
     return item
   }
@@ -636,7 +608,7 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(icon: UIImage?) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: nil)
     itemDefaultSet(item)
     item.icon = icon
     addItem(item: item)
@@ -648,7 +620,7 @@ open class Floaty: UIView {
    */
   @discardableResult
   @objc open func addItem(icon: UIImage?, handler: @escaping ((FloatyItem) -> Void)) -> FloatyItem {
-    let item = FloatyItem()
+    let item = FloatyItem(customLabelFont: nil)
     itemDefaultSet(item)
     item.icon = icon
     item.handler = handler

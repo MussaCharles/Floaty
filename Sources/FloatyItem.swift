@@ -111,7 +111,7 @@ open class FloatyItem: UIView {
       if _titleLabel == nil {
         _titleLabel = UILabel()
         _titleLabel?.textColor = titleColor
-        _titleLabel?.font = FloatyManager.defaultInstance().font
+        _titleLabel?.font = self.customLabelFont
         addSubview(_titleLabel!)
       }
       return _titleLabel!
@@ -158,6 +158,8 @@ open class FloatyItem: UIView {
     }
   }
   
+  
+  private var customLabelFont: UIFont = FloatyManager.defaultInstance().font
   /**
    Item's icon.
    */
@@ -188,9 +190,13 @@ open class FloatyItem: UIView {
   // MARK: - Initialize
   
   /**
+   If you want to change font size pass "customFont" parameter with the font of your choice.
    Initialize with default property.
    */
-  public init() {
+  public init(customLabelFont: UIFont?) {
+    if let font = customLabelFont {
+       self.customLabelFont = font
+    }
     super.init(frame: CGRect(x: 0, y: 0, width: size, height: size))
     backgroundColor = UIColor.clear
   }
