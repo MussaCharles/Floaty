@@ -515,8 +515,7 @@ open class Floaty: UIView {
     item.title = title
     if let font = font {
       /// User want to use custom font so override default font here
-      FloatyManager().font = font
-      item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
@@ -535,8 +534,7 @@ open class Floaty: UIView {
     item.icon = icon
     if let font = font {
       /// User want to use custom font so override default font here
-      FloatyManager().font = font
-       item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
@@ -553,7 +551,7 @@ open class Floaty: UIView {
     item.icon = icon
     if let font = font {
       /// User want to use custom font so override default font here
-      item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
@@ -570,8 +568,7 @@ open class Floaty: UIView {
     item.handler = handler
     if let font = font {
       /// User want to use custom font so override default font here
-      FloatyManager().font = font
-      item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
@@ -590,8 +587,7 @@ open class Floaty: UIView {
     item.handler = handler
     if let font = font {
       /// User want to use custom font so override default font here
-      FloatyManager().font = font
-      item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
@@ -609,8 +605,7 @@ open class Floaty: UIView {
     item.handler = handler
     if let font = font {
       /// User want to use custom font so override default font here
-      FloatyManager().font = font
-      item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
@@ -630,8 +625,7 @@ open class Floaty: UIView {
     item.handler = handler
     if let font = font {
       /// User want to use custom font so override default font here
-      FloatyManager().font = font
-      item.titleLabel.font = font
+      FloatyManager.defaultInstance().font = font
     }
     addItem(item: item)
     return item
